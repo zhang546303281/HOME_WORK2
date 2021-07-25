@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.hw.demo.bean.Student;
 import com.hw.demo.services.ISchool;
+import com.hw.demo.services.impl.NettyServer;
 import com.hw.demo.services.impl.ProcessServer;
 import com.hw.demo.services.impl.SchoolConfig;
 import com.zaxxer.hikari.HikariConfig;
@@ -50,6 +51,9 @@ class DemoApplicationTests {
 
     @Autowired
     private ProcessServer processServer;
+
+    @Autowired
+    private NettyServer nettyServer;
 
     /**
      * 必做2:装配注入
@@ -115,6 +119,14 @@ class DemoApplicationTests {
     void configTest() {
         String result = processServer.toPrintConfig();
         System.out.println("result:" + result);
+    }
+
+    /**
+     * 挑战4.2:简单构建filter aop实现方式
+     */
+    @Test
+    void aopTest(){
+        nettyServer.nettyServicerHandler();
     }
 
     /**
