@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.hw.demo.aspect.RouteAdvisor;
 import com.hw.demo.bean.Student;
 import com.hw.demo.services.ISchool;
 import com.hw.demo.services.impl.NettyServer;
@@ -7,7 +8,11 @@ import com.hw.demo.services.impl.ProcessServer;
 import com.hw.demo.services.impl.SchoolConfig;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import net.bytebuddy.ByteBuddy;
+import net.bytebuddy.asm.Advice;
+import net.bytebuddy.matcher.ElementMatchers;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.client.utils.DateUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +36,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -125,8 +131,26 @@ class DemoApplicationTests {
      * 挑战4.2:简单构建filter aop实现方式
      */
     @Test
-    void aopTest(){
-        nettyServer.nettyServicerHandler();
+    void aopTest() {
+        nettyServer.nettyServerHandler();
+    }
+
+    /**
+     * 挑战4.4:简单的使用 byteBuddy动态生成字节码构成一个对应类的子类
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
+    @Test
+    void byteBuddyTest() throws InstantiationException, IllegalAccessException {
+        NettyServer nettyServer = new ByteBuddy()
+                .subclass(NettyServer.class)
+                .method(ElementMatchers.any())
+                .intercept(Advice.to(RouteAdvisor.class))
+                .make()
+                .load(NettyServer.class.getClassLoader())
+                .getLoaded()
+                .newInstance();
+        nettyServer.route("20210725");
     }
 
     /**
