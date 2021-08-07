@@ -16,7 +16,7 @@ create table t_user_base_info
 );
 
 comment on table t_user_base_info is 
-'Áî®Êà∑Âü∫Êú¨‰ø°ÊÅØË°®';
+'”√ªßª˘±æ–≈œ¢±Ì';
 
 /*==============================================================*/
 /* Index: INX_U                                                 */
@@ -33,7 +33,7 @@ USER_ID ASC
 /*==============================================================*/
 /* Table: t_user_ext_info                                       */
 /*==============================================================*/
-create table t_user_ext_info
+create table t_user_ext_info 
 (
    UUID                 varchar(32)                    not null,
    USER_ID              varchar(32)                    null,
@@ -54,8 +54,8 @@ create table t_user_ext_info
    constraint PK_T_USER_EXT_INFO primary key clustered (UUID)
 );
 
-comment on table t_user_ext_info is
-'Áî®Êà∑ÊãìÂ±ï‰ø°ÊÅØË°®';
+comment on table t_user_ext_info is 
+'”√ªßÕÿ’π–≈œ¢±Ì';
 
 /*==============================================================*/
 /* Index: INX_U                                                 */
@@ -73,7 +73,7 @@ USER_ID ASC
 /*==============================================================*/
 /* Table: t_order_head                                          */
 /*==============================================================*/
-create table t_order_head
+create table t_order_head 
 (
    UUID                 varchar(32)                    not null,
    MRCH_ID              varchar(32)                    null,
@@ -94,8 +94,8 @@ create table t_order_head
    constraint PK_T_ORDER_HEAD primary key clustered (UUID)
 );
 
-comment on table t_order_head is
-'ËÆ¢ÂçïÂ§¥Ë°®';
+comment on table t_order_head is 
+'∂©µ•Õ∑±Ì';
 
 /*==============================================================*/
 /* Index: INX_MO                                                */
@@ -104,16 +104,16 @@ create index INX_MO on t_order_head (
 MRCH_ID ASC,
 ORDER_ID ASC
 );
-
-
-
-
-
-
+	  
+	  
+	  
+	  
+	  
+	  
 /*==============================================================*/
 /* Table: t_refund_order_head                                   */
 /*==============================================================*/
-create table t_refund_order_head
+create table t_refund_order_head 
 (
    UUID                 varchar(32)                    not null,
    MRCH_ID              varchar(32)                    null,
@@ -134,8 +134,8 @@ create table t_refund_order_head
    constraint PK_T_REFUND_ORDER_HEAD primary key clustered (UUID)
 );
 
-comment on table t_refund_order_head is
-'ÈÄÄÊ¨æËÆ¢ÂçïÂ§¥Ë°®';
+comment on table t_refund_order_head is 
+'ÕÀøÓ∂©µ•Õ∑±Ì';
 
 /*==============================================================*/
 /* Index: INX_MR                                                */
@@ -153,7 +153,7 @@ REFUND_ORDER_ID ASC
 /*==============================================================*/
 /* Table: t_order_foot                                          */
 /*==============================================================*/
-create table t_order_foot
+create table t_order_foot 
 (
    UUID                 varchar(32)                    not null,
    MRCH_ID              varchar(32)                    null,
@@ -162,7 +162,7 @@ create table t_order_foot
    DISTRIBUTION         varchar(512)                   null,
    INVOICE_TMP_ID       varchar(32)                    null,
    RECEIPT_TMP_ID       varchar(32)                    null,
-   ËÆ¢ÂçïÂø´ÁÖßID               varchar(32)                    null,
+   ∂©µ•øÏ’’ID               varchar(32)                    null,
    USER_ID              varchar(32)                    null,
    USER_MEM_ID          varchar(64)                    null,
    CREATE_DATE          date                           null,
@@ -174,8 +174,8 @@ create table t_order_foot
    constraint PK_T_ORDER_FOOT primary key clustered (UUID)
 );
 
-comment on table t_order_foot is
-'ËÆ¢ÂçïÈ°µËÑöË°®';
+comment on table t_order_foot is 
+'∂©µ•“≥Ω≈±Ì';
 
 /*==============================================================*/
 /* Index: INX_MO                                                */
@@ -193,7 +193,7 @@ ORDER_ID ASC
 /*==============================================================*/
 /* Table: t_order_detail                                        */
 /*==============================================================*/
-create table t_order_detail
+create table t_order_detail 
 (
    UUID                 varchar(32)                    not null,
    MRCH_ID              varchar(32)                    null,
@@ -221,8 +221,8 @@ create table t_order_detail
    constraint PK_T_ORDER_DETAIL primary key clustered (UUID)
 );
 
-comment on table t_order_detail is
-'ËÆ¢ÂçïÊòéÁªÜË°®';
+comment on table t_order_detail is 
+'∂©µ•√˜œ∏±Ì';
 
 /*==============================================================*/
 /* Index: INX_MOOS                                              */
@@ -242,7 +242,7 @@ SHOP_CART_ID ASC
 /*==============================================================*/
 /* Table: t_shop_cart                                           */
 /*==============================================================*/
-create table t_shop_cart
+create table t_shop_cart 
 (
    UUID                 varchar(32)                    not null,
    MRCH_ID              varchar(32)                    null,
@@ -268,8 +268,8 @@ create table t_shop_cart
    constraint PK_T_SHOP_CART primary key clustered (UUID)
 );
 
-comment on table t_shop_cart is
-'Ë¥≠Áâ©ËΩ¶Ë°®';
+comment on table t_shop_cart is 
+'π∫ŒÔ≥µ±Ì';
 
 /*==============================================================*/
 /* Index: INX_MSC                                               */
