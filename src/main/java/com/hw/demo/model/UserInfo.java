@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
 
-@TableName("`t_user_base_info`")
+@TableName("`user`")
 public class UserInfo implements Serializable {
 
     @TableId(type = IdType.INPUT)
