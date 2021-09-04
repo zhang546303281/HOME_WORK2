@@ -29,4 +29,7 @@ spring:
           actualDataNodes: read.t_user_base_info
       defaultTableStrategy:
         none:
-          any: ""
+          any:
+  redis:
+    host: 127.0.0.1
+    port: 6379
